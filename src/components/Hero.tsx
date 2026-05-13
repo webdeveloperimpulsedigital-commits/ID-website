@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
     <section className="hero" id="hero">
       <div className="hero-content">
         <h1 className="split-text title-large">
-          Most marketing decisions are made<br />without the most <span style={{ whiteSpace: 'nowrap' }}>important input</span>
+          Most marketing decisions are made<br className="br-desktop" />without the most <span style={{ whiteSpace: 'nowrap' }}>important input</span>
         </h1>
         <h1 className="split-text title-large text-violet">your own data.</h1>
 
