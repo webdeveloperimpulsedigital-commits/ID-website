@@ -8,7 +8,7 @@ const CaseStudies: React.FC = () => {
       </div>
       <div className="cosmos-wrapper">
         <div className="cosmos-card">
-          <img src="/case studies/HUL.png" className="hs-card-img" alt="HUL" />
+          <img src={`${import.meta.env.BASE_URL}case studies/HUL.png`} className="hs-card-img" alt="HUL" />
           <div className="hs-card-inner">
             <h3 className="hs-client">HUL</h3>
             <p className="hs-desc">Geo-targeted digital coupon campaign delivering 90% higher CTR and 12,548 landing page sessions.</p>
@@ -16,7 +16,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="cosmos-card">
-          <img src="/case studies/Brut.png" className="hs-card-img" alt="Brut India" />
+          <img src={`${import.meta.env.BASE_URL}case studies/Brut.png`} className="hs-card-img" alt="Brut India" />
           <div className="hs-card-inner">
             <h3 className="hs-client">Brut India</h3>
             <p className="hs-desc">Social impact content partnership for one of India's most-watched digital publishers.</p>
@@ -24,7 +24,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="cosmos-card">
-          <img src="/case studies/Uppercase.webp" className="hs-card-img" alt="Uppercase" />
+          <img src={`${import.meta.env.BASE_URL}case studies/Uppercase.webp`} className="hs-card-img" alt="Uppercase" />
           <div className="hs-card-inner">
             <h3 className="hs-client">Uppercase</h3>
             <p className="hs-desc">A complete brand film produced entirely with AI: script, visuals, voice, and edit.</p>
@@ -32,7 +32,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="cosmos-card">
-          <img src="/case studies/Dmart.png" className="hs-card-img" alt="DMart" />
+          <img src={`${import.meta.env.BASE_URL}case studies/Dmart.png`} className="hs-card-img" alt="DMart" />
           <div className="hs-card-inner">
             <h3 className="hs-client">DMart</h3>
             <p className="hs-desc">13.43 lakh unique reach and 53K clicks driving store footfall.</p>
@@ -40,7 +40,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="cosmos-card">
-          <img src="/case studies/Mastercard.png" className="hs-card-img" alt="Mastercard" />
+          <img src={`${import.meta.env.BASE_URL}case studies/Mastercard.png`} className="hs-card-img" alt="Mastercard" />
           <div className="hs-card-inner">
             <h3 className="hs-client">Mastercard</h3>
             <p className="hs-desc">90.9% merchant response rate through WhatsApp-led cluster-head outreach strategy.</p>
@@ -48,7 +48,7 @@ const CaseStudies: React.FC = () => {
         </div>
 
         <div className="cosmos-card">
-          <img src="/case studies/Fours for good.png" className="hs-card-img" alt="Force for Good" />
+          <img src={`${import.meta.env.BASE_URL}case studies/Fours for good.png`} className="hs-card-img" alt="Force for Good" />
           <div className="hs-card-inner">
             <h3 className="hs-client">Fours for Good</h3>
             <p className="hs-desc">Building an impactful social narrative through high-performance digital production.</p>

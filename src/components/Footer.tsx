@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         <div className="footer-grid">
           <div className="footer-col">
-            <img src="/ImpulseDigital_Logo.svg" alt="Impulse Digital Logo" className="footer-logo" />
+            <img src={`${import.meta.env.BASE_URL}ImpulseDigital_Logo.svg`} alt="Impulse Digital Logo" className="footer-logo" />
             <p className="footer-tagline">AI native growth intelligence for enterprise brands.</p>
             <div className="footer-socials">
               <a href="#" className="social-icon" data-cursor="FOLLOW"><i className="fab fa-facebook-f"></i></a>

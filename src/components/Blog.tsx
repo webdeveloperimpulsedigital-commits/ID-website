@@ -10,7 +10,7 @@ const Blog: React.FC = () => {
         </div>
         <div className="blog-grid">
           <div className="blog-card blog-card--featured">
-            <img src="/images/dashboard.png" alt="Dashboarding is Not Intelligence" className="blog-card-img" />
+            <img src={`${import.meta.env.BASE_URL}images/dashboard.png`} alt="Dashboarding is Not Intelligence" className="blog-card-img" />
             <div className="blog-card-inner">
               <div className="blog-card-top">
                 <span className="blog-category">Growth Intelligence</span>
@@ -23,7 +23,7 @@ const Blog: React.FC = () => {
             </div>
           </div>
           <div className="blog-card">
-            <img src="/images/agency_office.png" alt="Agentic Workflows" className="blog-card-img" />
+            <img src={`${import.meta.env.BASE_URL}images/agency_office.png`} alt="Agentic Workflows" className="blog-card-img" />
             <div className="blog-card-inner">
               <div className="blog-card-top">
                 <span className="blog-category">AI Agency</span>
@@ -36,7 +36,7 @@ const Blog: React.FC = () => {
             </div>
           </div>
           <div className="blog-card">
-            <img src="/images/glass_shape.png" alt="Generative Search" className="blog-card-img" />
+            <img src={`${import.meta.env.BASE_URL}images/glass_shape.png`} alt="Generative Search" className="blog-card-img" />
             <div className="blog-card-inner">
               <div className="blog-card-top">
                 <span className="blog-category">Generative Search</span>

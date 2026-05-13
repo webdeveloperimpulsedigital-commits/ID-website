@@ -17,7 +17,7 @@ const App: React.FC = () => {
     // We append the script here to ensure it runs after all React components
     // have been fully mounted and their DOM nodes exist.
     const script = document.createElement('script');
-    script.src = '/js/script.js?v=54';
+    script.src = `${import.meta.env.BASE_URL}js/script.js?v=54`;
     script.async = true;
     document.body.appendChild(script);
 
@@ -27,7 +27,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Background />
       <Navbar />
       <Routes>
