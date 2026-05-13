@@ -219,7 +219,7 @@ const AboutUs: React.FC = () => {
       <ServiceHandoff />
 
       {/* Section 2: Appetite */}
-      <section className="svc-section glass-panel">
+      <section className="svc-section glass-panel" style={{ borderRadius: '60px 160px 60px 160px', transform: 'scale(0.98)', border: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h2 className="svc-h2 split-text" style={{ marginBottom: '3rem' }}>Appetite is not size.<br />It is willingness.</h2>
 
@@ -245,7 +245,7 @@ const AboutUs: React.FC = () => {
       <ServiceHandoff />
 
       {/* Section 3: Formation */}
-      <section className="svc-section">
+      <section className="svc-section glass-panel" style={{ borderRadius: '160px 60px 160px 60px', transform: 'scale(0.98)', border: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
             <div>
@@ -271,7 +271,7 @@ const AboutUs: React.FC = () => {
       <ServiceHandoff />
 
       {/* Section 4: Service vs Story */}
-      <section className="svc-section glass-panel">
+      <section className="svc-section glass-panel" style={{ borderRadius: '100px 100px 40px 40px', transform: 'scale(0.98)', border: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
             <h2 className="svc-h2 split-text" style={{ marginBottom: '1.5rem' }}>The service is not the story.<br />The movement is.</h2>
@@ -314,7 +314,7 @@ const AboutUs: React.FC = () => {
       <ServiceHandoff />
 
       {/* Section 5: Senior Thinking */}
-      <section className="svc-section">
+      <section className="svc-section glass-panel" style={{ borderRadius: '40px 40px 100px 100px', transform: 'scale(0.98)', border: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <h2 className="svc-h2 split-text" style={{ marginBottom: '2rem' }}>Senior thinking stays close to the work.</h2>
           <p style={{ fontSize: '1.15rem', color: 'var(--soft-grey)', lineHeight: 1.6, marginBottom: '3rem' }}>Impulse is not built on the idea that strategy happens once and execution figures itself out.</p>
@@ -369,8 +369,8 @@ const AboutUs: React.FC = () => {
       {/* Section 7: Fit / CTA */}
       <section className="svc-final-cta glass-panel">
         <div className="svc-final-cta-mark" aria-hidden="true">
-          <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-            <path className="svc-final-cta-path" d="M250,150 C100,150 50,250 50,300 C50,350 100,450 250,450 C400,450 450,350 500,300 C550,250 600,150 750,150 C900,150 950,250 950,300 C950,350 900,450 750,450 C600,450 550,350 500,300 C450,250 400,150 250,150 Z" fill="none" />
+          <svg viewBox="801 344 274 272" xmlns="http://www.w3.org/2000/svg">
+            <path className="svc-final-cta-path" d="M1014.2,569.56c1.74-38.31.87-92.29-14.17-126.43-4.45-10.09-11.39-18.02-21.2-22.92-19.98-9.99-55.06-15.74-77.2-15.78l-54.99-.1c-11.88-.02-22.87-4.01-24.19-14.77-1.4-11.46,9.4-19.23,20.5-20.7,37.6-5.01,74.9-7.39,112.77-5.34,18.7,1.01,36.2,3.78,53.65,9.6,17.16,5.73,29.66,17.62,35.66,34.79s8.71,34.06,9.87,52.44c2.45,39.04-.02,77.43-5.33,116.08-1.52,11.09-10.07,21.87-21.85,19.47-10.45-2.12-14.04-14.54-13.51-26.33Z" fill="none" />
           </svg>
         </div>
         <div className="container">
