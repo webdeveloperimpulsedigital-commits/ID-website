@@ -236,6 +236,35 @@ nav.scrolled {
 .btn:hover::before, .btn-nav:hover::before { opacity: 1; }
 .btn:hover::after, .btn-nav:hover::after { opacity: 0.3; }
 
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 1.5rem;
+        height: auto;
+        min-height: 100vh;
+    }
+    .hero-content {
+        padding-top: 8rem;
+        padding-bottom: 4rem;
+    }
+    .title-large {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+    .hero-bottom {
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+    .hero-desc {
+        font-size: 1rem;
+    }
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    .br-desktop {
+        display: none;
+    }
+}
+
 /* Section Headings */
 .section-heading { font-size: clamp(3rem, 5vw, 6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 4rem; }
 
