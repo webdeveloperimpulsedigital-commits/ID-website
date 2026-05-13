@@ -191,29 +191,37 @@ const AboutUs: React.FC = () => {
       />
       <ServiceHandoff />
 
-      {/* Section 1: Maintenance */}
-      <section className="svc-channels">
-        <div className="container">
-          <h2 className="svc-h2 split-text">Marketing becomes maintenance quietly.</h2>
-          <p className="svc-channels-intro" style={{ marginBottom: '4rem' }}>It rarely fails all at once. The calendar keeps moving. Campaigns keep launching. Reports keep getting made. Meetings keep happening. But somewhere along the way, the work starts needing more explanation than it creates movement. Leadership starts asking harder questions.</p>
-
-          <div className="svc-channels-stage" id="channels-stage" style={{ minHeight: '400px', marginBottom: '2rem' }}>
-            <svg className="svc-channels-orbit-svg" id="channels-orbit-lines" aria-hidden="true"></svg>
-            <div className="svc-channels-center" aria-hidden="true">
-              <svg viewBox="801 344 274 272" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1014.2,569.56c1.74-38.31.87-92.29-14.17-126.43-4.45-10.09-11.39-18.02-21.2-22.92-19.98-9.99-55.06-15.74-77.2-15.78l-54.99-.1c-11.88-.02-22.87-4.01-24.19-14.77-1.4-11.46,9.4-19.23,20.5-20.7,37.6-5.01,74.9-7.39,112.77-5.34,18.7,1.01,36.2,3.78,53.65,9.6,17.16,5.73,29.66,17.62,35.66,34.79s8.71,34.06,9.87,52.44c2.45,39.04-.02,77.43-5.33,116.08-1.52,11.09-10.07,21.87-21.85,19.47-10.45-2.12-14.04-14.54-13.51-26.33Z" />
-              </svg>
+      {/* Section 1: Maintenance - Manifesto Style */}
+      <section style={{ padding: '12rem 0 8rem 0', position: 'relative', overflow: 'hidden' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <h2 className="split-text" style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', fontFamily: 'var(--font-heading)', fontWeight: 700, lineHeight: 1.05, marginBottom: '4rem', letterSpacing: '-0.02em', color: 'var(--white)' }}>
+            Marketing becomes<br />maintenance quietly.
+          </h2>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '6rem', alignItems: 'center' }}>
+            <div style={{ padding: '3.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '32px' }}>
+              <p style={{ fontSize: '1.25rem', color: 'var(--soft-grey)', lineHeight: 1.7 }}>
+                It rarely fails all at once. The calendar keeps moving. Campaigns keep launching. Reports keep getting made. Meetings keep happening.
+              </p>
+              <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, rgba(255,255,255,0.2), transparent)', margin: '2.5rem 0' }}></div>
+              <p style={{ fontSize: '1.3rem', color: 'var(--white)', fontWeight: 500, lineHeight: 1.7 }}>
+                But somewhere along the way, the work starts needing more explanation than it creates movement. Leadership starts asking harder questions.
+              </p>
             </div>
-            <div className="svc-channels-orbit">
-              <span className="svc-channel-chip" style={{ left: '15%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem', width: '260px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this doing for the brand?"</span>
-              <span className="svc-channel-chip" style={{ left: '85%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem', width: '260px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this building over time?"</span>
-              <span className="svc-channel-chip" style={{ left: '15%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem', width: '260px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this helping us decide?"</span>
-              <span className="svc-channel-chip" style={{ left: '85%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem', width: '260px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this moving for the business?"</span>
+            
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ borderLeft: '4px solid var(--accent)', paddingLeft: '3rem' }}>
+                <h3 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--white)', lineHeight: 1.2 }}>
+                  That is the drift<br />
+                  <span style={{ color: 'var(--accent)' }}>Impulse exists to resist.</span>
+                </h3>
+              </div>
             </div>
           </div>
-
-          <p style={{ textAlign: 'center', marginTop: '3rem', fontSize: '1.5rem', color: 'var(--white)', fontFamily: 'var(--font-heading)', fontWeight: 600 }}>That is the drift Impulse exists to resist.</p>
         </div>
+        
+        {/* Abstract Background Element */}
+        <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '50vw', height: '50vw', background: 'radial-gradient(circle, rgba(138, 92, 246, 0.15) 0%, transparent 70%)', borderRadius: '50%', zIndex: -1, pointerEvents: 'none' }}></div>
       </section>
 
       {/* Section 2: Appetite - High Contrast Statement */}
