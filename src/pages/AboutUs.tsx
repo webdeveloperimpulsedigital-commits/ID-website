@@ -185,10 +185,10 @@ const AboutUs: React.FC = () => {
               </svg>
             </div>
             <div className="svc-channels-orbit">
-              <span className="svc-channel-chip" style={{ left: '15%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem' }}>"What is this doing for the brand?"</span>
-              <span className="svc-channel-chip" style={{ left: '85%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem' }}>"What is this building over time?"</span>
-              <span className="svc-channel-chip" style={{ left: '15%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem' }}>"What is this helping us decide?"</span>
-              <span className="svc-channel-chip" style={{ left: '85%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem' }}>"What is this moving for the business?"</span>
+              <span className="svc-channel-chip" style={{ left: '15%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem', maxWidth: '240px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this doing for the brand?"</span>
+              <span className="svc-channel-chip" style={{ left: '85%', top: '25%', padding: '1rem 1.5rem', fontSize: '1.05rem', maxWidth: '240px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this building over time?"</span>
+              <span className="svc-channel-chip" style={{ left: '15%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem', maxWidth: '240px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this helping us decide?"</span>
+              <span className="svc-channel-chip" style={{ left: '85%', top: '75%', padding: '1rem 1.5rem', fontSize: '1.05rem', maxWidth: '240px', whiteSpace: 'normal', textAlign: 'center', lineHeight: 1.4 }}>"What is this moving for the business?"</span>
             </div>
           </div>
           
