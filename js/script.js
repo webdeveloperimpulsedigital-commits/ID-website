@@ -351,7 +351,7 @@ document.fonts.ready.then(() => {
                 trigger: cosmosSection,
                 pin: true,
                 scrub: 0.7, // Reduced lag for a 10% faster response to scroll
-                start: 'top 60px',
+                start: 'top top',
                 end: () => '+=' + (cosmosCards.length * 1080), // Reduced distance by 10% to make them fly faster
                 onLeave: () => {
                     // Fade out the warp strictly AFTER the pinned section finishes
@@ -375,7 +375,7 @@ document.fonts.ready.then(() => {
             
             // 2. TRUE CONTINUOUS 3D FLY-THROUGH (Never stops, never artificially slides)
             tl.to(card, { 
-                z: 1500, // Fly completely past the camera lens (perspective is 1500px)
+                z: 1200, // Fly close to camera lens but avoid hitting perspective=1500px to prevent renderer glitches
                 ease: 'none', // Constant velocity to maintain travel illusion
                 duration: flyDuration 
             }, startTime) 
