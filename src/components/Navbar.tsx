@@ -6,6 +6,7 @@ const Navbar: React.FC = () => {
   const [forceHideDropdown, setForceHideDropdown] = useState(false);
 
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -14,6 +15,7 @@ const Navbar: React.FC = () => {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setOpenSubMenu(null);
   };
 
   const handleNavClick = () => {
@@ -23,6 +25,13 @@ const Navbar: React.FC = () => {
     setTimeout(() => {
       setForceHideDropdown(false);
     }, 200);
+  };
+
+  const toggleSubMenu = (menu: string, e: React.MouseEvent) => {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+      setOpenSubMenu(openSubMenu === menu ? null : menu);
+    }
   };
 
   return (
@@ -53,8 +62,10 @@ const Navbar: React.FC = () => {
             </button>
             <div className={`dropdown-content ${isMobileServicesOpen ? 'mobile-expanded' : ''}`} style={!isMobileServicesOpen && window.innerWidth > 1024 ? { display: forceHideDropdown ? 'none' : '' } : {}}>
               <div className="dropdown-col">
-                <h4>Growth Intelligence</h4>
-                <div className="dropdown-list">
+                <h4 onClick={(e) => toggleSubMenu('growth', e)} className={openSubMenu === 'growth' ? 'active' : ''}>
+                  Growth Intelligence <span className="mobile-only-icon">{openSubMenu === 'growth' ? '−' : '+'}</span>
+                </h4>
+                <div className={`dropdown-list ${openSubMenu === 'growth' ? 'mobile-open' : ''}`}>
                   <Link to="/consumer-intelligence" className="dropdown-item" onClick={handleNavClick}>Consumer Intelligence</Link>
                   <Link to="/market-intelligence" className="dropdown-item" onClick={handleNavClick}>Market and Competitive Intelligence</Link>
                   <Link to="/always-on-intelligence" className="dropdown-item" onClick={handleNavClick}>Always-On Intelligence</Link>
@@ -62,8 +73,10 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
               <div className="dropdown-col">
-                <h4>AI Marketing Systems</h4>
-                <div className="dropdown-list">
+                <h4 onClick={(e) => toggleSubMenu('ai', e)} className={openSubMenu === 'ai' ? 'active' : ''}>
+                  AI Marketing Systems <span className="mobile-only-icon">{openSubMenu === 'ai' ? '−' : '+'}</span>
+                </h4>
+                <div className={`dropdown-list ${openSubMenu === 'ai' ? 'mobile-open' : ''}`}>
                   <Link to="/archer-ai" className="dropdown-item" onClick={handleNavClick}>Archer AI</Link>
                   <Link to="/agentic-ai" className="dropdown-item" onClick={handleNavClick}>Agentic AI</Link>
                   <Link to="/ai-video-production" className="dropdown-item" onClick={handleNavClick}>Cinematic AI Production</Link>
@@ -71,8 +84,10 @@ const Navbar: React.FC = () => {
                 </div>
               </div>
               <div className="dropdown-col">
-                <h4>Brand Infrastructure</h4>
-                <div className="dropdown-list">
+                <h4 onClick={(e) => toggleSubMenu('brand', e)} className={openSubMenu === 'brand' ? 'active' : ''}>
+                  Brand Infrastructure <span className="mobile-only-icon">{openSubMenu === 'brand' ? '−' : '+'}</span>
+                </h4>
+                <div className={`dropdown-list ${openSubMenu === 'brand' ? 'mobile-open' : ''}`}>
                   <Link to="/search-engine-optimisation" className="dropdown-item" onClick={handleNavClick}>Search and Visibility</Link>
                   <Link to="/ecommerce-seo" className="dropdown-item sub-item" onClick={handleNavClick}>eCommerce SEO</Link>
                   <Link to="/local-seo" className="dropdown-item sub-item" onClick={handleNavClick}>Local SEO</Link>

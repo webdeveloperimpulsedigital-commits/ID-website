@@ -3,17 +3,27 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const [showScroll, setShowScroll] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const checkScroll = () => {
+    const handleScroll = () => {
       if (window.scrollY > 400) {
         setShowScroll(true);
       } else {
         setShowScroll(false);
       }
+
+      const totalScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (windowHeight > 0) {
+        const progress = totalScroll / windowHeight;
+        setScrollProgress(progress);
+      }
     };
-    window.addEventListener('scroll', checkScroll);
-    return () => window.removeEventListener('scroll', checkScroll);
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -126,8 +136,13 @@ const Footer: React.FC = () => {
         className={`scroll-to-top ${showScroll ? 'visible' : ''}`}
         onClick={scrollToTop}
         aria-label="Scroll to top"
+        style={{ '--scroll-progress': scrollProgress } as React.CSSProperties}
+        data-cursor="GO"
       >
-        <i className="fas fa-arrow-up"></i>
+        <svg viewBox="800 400 300 330" className="scroll-boomerang">
+          <path className="boomerang-outline" d="M1014.2,569.56c1.74-38.31.87-92.29-14.17-126.43-4.45-10.09-11.39-18.02-21.2-22.92-19.98-9.99-55.06-15.74-77.2-15.78l-54.99-.1c-11.88-.02-22.87-4.01-24.19-14.77-1.4-11.46,9.4-19.23,20.5-20.7,37.6-5.01,74.9-7.39,112.77-5.34,18.7,1.01,36.2,3.78,53.65,9.6,17.16,5.73,29.66,17.62,35.66,34.79s8.71,34.06,9.87,52.44c2.45,39.04-.02,77.43-5.33,116.08-1.52,11.09-10.07,21.87-21.85,19.47-10.45-2.12-14.04-14.54-13.51-26.33Z"/>
+          <path className="boomerang-fill" d="M1014.2,569.56c1.74-38.31.87-92.29-14.17-126.43-4.45-10.09-11.39-18.02-21.2-22.92-19.98-9.99-55.06-15.74-77.2-15.78l-54.99-.1c-11.88-.02-22.87-4.01-24.19-14.77-1.4-11.46,9.4-19.23,20.5-20.7,37.6-5.01,74.9-7.39,112.77-5.34,18.7,1.01,36.2,3.78,53.65,9.6,17.16,5.73,29.66,17.62,35.66,34.79s8.71,34.06,9.87,52.44c2.45,39.04-.02,77.43-5.33,116.08-1.52,11.09-10.07,21.87-21.85,19.47-10.45-2.12-14.04-14.54-13.51-26.33Z"/>
+        </svg>
       </button>
     </footer>
   );
