@@ -223,6 +223,10 @@ nav.scrolled {
     opacity: 0.9;
 }
 
+.mobile-only-icon {
+    display: none;
+}
+
 .dropdown-list {
     display: flex;
     flex-direction: column;
@@ -1864,34 +1868,7 @@ button,
     flex-shrink: 0;
 }
 
-/* ---------- 3. PAGE SCROLL PROGRESS MARK ---------- */
-/* The mark draws itself as you traverse the site.
-   Your journey = the mark drawing.  */
-.page-progress {
-    position: fixed;
-    top: 1.75rem;
-    right: 2rem;
-    width: 32px;
-    height: 32px;
-    z-index: 102;
-    pointer-events: none;
-    opacity: 0.85;
-}
 
-.page-progress svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.page-progress-path {
-    fill: none;
-    stroke: var(--impulse-violet);
-    stroke-width: 14;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    /* JS sets stroke-dasharray and animates stroke-dashoffset */
-}
 
 /* ---------- 4. LOGOS CARD DISSOLVES INTO SPACE ---------- */
 /* The white block no longer cuts the cosmos — it fades top
@@ -2041,12 +2018,7 @@ button,
         font-size: clamp(1.8rem, 6vw, 3rem);
     }
 
-    .page-progress {
-        top: 1rem;
-        right: 1rem;
-        width: 24px;
-        height: 24px;
-    }
+
 
     .cursor,
     .cursor-dot {
@@ -3891,10 +3863,9 @@ button,
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: center; /* Center align! */
         gap: 1.5rem;
-        padding-top: 7rem;
-        padding-bottom: 3rem;
+        padding: 7rem 1.5rem 4rem;
         overflow-y: auto;
         opacity: 0;
         visibility: hidden;
@@ -3908,28 +3879,34 @@ button,
     }
 
     .nav-item {
-        font-size: 1.25rem;
+        font-size: 1.8rem; /* Make it large and premium */
         margin: 0;
+        font-weight: 500;
+        opacity: 0.9;
+        text-align: center;
     }
 
     .nav-dropdown {
         width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Center align! */
     }
 
     .nav-dropdown .services-toggle {
         display: flex !important;
         align-items: center;
-        gap: 8px;
-        background: transparent;
-        border: none;
+        justify-content: center;
+        gap: 12px;
+        background: transparent !important;
+        border: none !important;
         color: var(--white);
         font-family: var(--font-body);
+        font-size: 1.8rem;
         font-weight: 500;
         cursor: pointer;
-        padding: 0.5rem 1rem;
+        padding: 0;
+        opacity: 0.9;
     }
 
     .services-toggle.active .dropdown-arrow {
@@ -3940,37 +3917,95 @@ button,
         display: none;
     }
 
-    .dropdown-content.mobile-expanded {
-        position: static;
-        transform: none;
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        padding: 1rem 0 0 0;
+    .dropdown-content.mobile-expanded,
+    .nav-dropdown:hover .dropdown-content.mobile-expanded {
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        padding: 1.5rem 0 1rem 0;
         display: flex;
         flex-direction: column;
+        align-items: center;
         background: transparent;
         border: none;
-        gap: 1.5rem;
+        gap: 2rem;
         width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
+        max-width: none;
+        margin: 0;
+        left: auto !important;
     }
 
     .dropdown-col {
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 16px;
-        padding: 1.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: transparent;
+        border-radius: 0;
+        padding: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align! */
+        width: 100%;
     }
 
     .dropdown-col h4 {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
+        padding: 1rem 0;
+        font-size: 0.95rem;
+        letter-spacing: 2px;
+        opacity: 0.8;
+        text-align: center;
+        width: 100%;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-col h4.active {
+        color: var(--white);
+        opacity: 1;
+    }
+
+    .mobile-only-icon {
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1;
+    }
+
+    .dropdown-list {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 1rem 0;
+        background: rgba(0,0,0,0.2);
+    }
+
+    .dropdown-list.mobile-open {
+        display: flex; /* Shown when clicked */
     }
 
     .dropdown-item {
-        padding: 0.25rem 0;
+        padding: 0.6rem 0;
         text-align: center;
+        font-size: 1.1rem;
+        opacity: 0.75;
+    }
+
+    .dropdown-item.sub-item {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1rem;
+        opacity: 0.6;
+    }
+    
+    .dropdown-item.sub-item::before {
+        display: none;
     }
 
     nav {
@@ -4190,23 +4225,20 @@ button,
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--impulse-violet);
-    color: var(--white);
+    width: 60px;
+    height: 60px;
+    background: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
     cursor: pointer;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.3s ease;
+    padding: 0;
 }
 
 .scroll-to-top.visible {
@@ -4216,18 +4248,48 @@ button,
 }
 
 .scroll-to-top:hover {
-    transform: translateY(-5px);
-    background: var(--white);
-    color: var(--impulse-violet);
+    transform: translateY(-8px) scale(1.15);
+}
+
+.scroll-boomerang {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+}
+
+.scroll-to-top:hover .scroll-boomerang {
+    transform: rotate(-45deg);
+}
+
+.scroll-boomerang .boomerang-outline {
+    fill: none;
+    stroke: rgba(138, 92, 246, 0.4); /* Faded violet outline */
+    stroke-width: 15;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: calc(1000 - (var(--scroll-progress, 0) * 1000));
+    transition: stroke-dashoffset 0.2s ease-out;
+}
+
+.scroll-boomerang .boomerang-fill {
+    fill: var(--impulse-violet); /* Solid violet fill */
+    clip-path: inset(calc(100% - (var(--scroll-progress, 0) * 100%)) 0 0 0);
+    transition: clip-path 0.3s cubic-bezier(0.23, 1, 0.32, 1), fill 0.4s ease;
+}
+
+.scroll-to-top:hover .scroll-boomerang .boomerang-fill {
+    fill: var(--white);
 }
 
 @media (max-width: 768px) {
     .scroll-to-top {
         bottom: 1.5rem;
         right: 1.5rem;
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
+        width: 50px;
+        height: 50px;
     }
 }
 

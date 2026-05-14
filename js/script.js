@@ -252,26 +252,7 @@ document.fonts.ready.then(() => {
         }
     });
 
-    // ==========================================================
-    // PAGE SCROLL PROGRESS — the mark draws itself as you scroll.
-    // By the time you reach the contact section, the mark is complete.
-    // Your journey through the site IS the mark drawing.
-    // ==========================================================
-    const progressPath = document.querySelector('.page-progress-path');
-    if (progressPath) {
-        const progressLen = progressPath.getTotalLength();
-        gsap.set(progressPath, { strokeDasharray: progressLen, strokeDashoffset: progressLen });
 
-        ScrollTrigger.create({
-            trigger: 'body',
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 0.4,
-            onUpdate: (self) => {
-                progressPath.style.strokeDashoffset = String(progressLen * (1 - self.progress));
-            }
-        });
-    }
 
     // SplitType
     const splitTexts = document.querySelectorAll('.split-text');
