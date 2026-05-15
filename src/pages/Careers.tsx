@@ -735,6 +735,7 @@ const Careers: React.FC = () => {
           /* Force Values Bento Grid to single column vertical stack */
           .values-bento-grid { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; }
           .values-bento-grid > div { grid-column: span 1 !important; grid-row: auto !important; height: auto !important; min-height: auto !important; }
+          .responsive-flex-col { flex-direction: column !important; gap: 1.5rem !important; align-items: flex-start !important; }
           .aww3-cat-title { font-size: 2.5rem !important; }
           .expectations-number { font-size: 3rem !important; }
           .section-padding { padding: 4rem 1.5rem !important; }
@@ -1078,7 +1079,7 @@ const Careers: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ position: 'relative', zIndex: 10, display: 'flex', gap: '4rem', alignItems: 'center' }}>
+              <div className="responsive-flex-col" style={{ position: 'relative', zIndex: 10, display: 'flex', gap: '4rem', alignItems: 'center' }}>
                 <div style={{ flex: '0 0 auto' }}>
                   <div style={{ width: '80px', height: '80px', background: 'rgba(138, 92, 246, 0.1)', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid rgba(138, 92, 246, 0.3)', color: '#a5b4fc' }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" /><path d="M16 21v-5h5" /></svg>
@@ -1087,7 +1088,7 @@ const Careers: React.FC = () => {
                 <div style={{ flex: 1 }}>
                   <h3 className="aww3-card-title" style={{ fontSize: '3rem', fontWeight: 800, color: '#fff', marginBottom: '1.5rem', letterSpacing: '-0.02em', transition: 'color 0.4s ease' }}>{values[3].title}</h3>
                   <div style={{ color: '#d1d5db', fontSize: '1.3rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                    <ul style={{ margin: 0, paddingLeft: '1.5rem', listStyleType: 'disc', color: '#8b5cf6', display: 'flex', gap: '2rem' }}>
+                    <ul className="responsive-flex-col" style={{ margin: 0, paddingLeft: '1.5rem', listStyleType: 'disc', color: '#8b5cf6', display: 'flex', gap: '2rem' }}>
                       <li><span style={{ color: '#d1d5db' }}>Your first draft may not survive.</span></li>
                       <li><span style={{ color: '#d1d5db' }}>Your idea may be questioned.</span></li>
                       <li><span style={{ color: '#d1d5db' }}>Your line may be rewritten.</span></li>
