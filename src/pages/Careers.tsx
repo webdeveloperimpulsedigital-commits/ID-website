@@ -281,7 +281,7 @@ const Careers: React.FC = () => {
       <section id="hero" className="svc-hero-page" style={{ height: 'auto', minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingBottom: '4rem' }}>
         <div className="neon-circle" style={{ background: 'rgba(138, 92, 246, 0.15)', width: '800px', height: '800px', top: '-20%', left: '50%', transform: 'translateX(-50%)' }}></div>
 
-        <div className="container" style={{ textAlign: 'center', paddingTop: '140px', zIndex: 10, position: 'relative' }}>
+        <div className="container" style={{ textAlign: 'center', paddingTop: '0px', zIndex: 10, position: 'relative' }}>
           <h1 className="split-text svc-hero-headline" style={{ marginBottom: '4rem' }}>
             For people who want <br />
             <span style={{ color: 'var(--impulse-violet)' }}>more</span> <br />
