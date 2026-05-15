@@ -20,10 +20,14 @@ import WebsiteDevelopment from './pages/WebsiteDevelopment';
 import AIVideoProduction from './pages/AIVideoProduction';
 import ECommerceSEO from './pages/ECommerceSEO';
 import LocalSEO from './pages/LocalSEO';
+<<<<<<< HEAD
 import EnterpriseSEO from './pages/EnterpriseSEO';
 import B2BSEO from './pages/B2BSEO';
 import ServicesIndex from './pages/ServicesIndex';
 import CaseStudies from './pages/CaseStudies';
+=======
+import Careers from './pages/Careers';
+>>>>>>> 8c30bff08c56249d20decf026755bfc31c5ce73f
 import { useLocation } from 'react-router-dom';
 
 const ScrollToTop = () => {
@@ -118,6 +122,7 @@ const App: React.FC = () => {
         <Route path="/services/search-engine-optimisation/local-seo" element={<LocalSEO />} />
         <Route path="/local seo" element={<LocalSEO />} />
         <Route path="/local%20seo" element={<LocalSEO />} />
+<<<<<<< HEAD
         <Route path="/services/search-engine-optimisation/ecommerce-seo" element={<ECommerceSEO />} />
         <Route path="/services/search-engine-optimisation/enterprise-seo" element={<EnterpriseSEO />} />
         <Route path="/services/search-engine-optimisation/b2b-seo" element={<B2BSEO />} />
@@ -128,6 +133,15 @@ const App: React.FC = () => {
         <Route path="/services/ai-video-production" element={<AIVideoProduction />} />
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+=======
+        <Route path="/ecommerce-seo" element={<ECommerceSEO />} />
+        <Route path="/social-media-management" element={<SocialMediaManagement />} />
+        <Route path="/website-development" element={<WebsiteDevelopment />} />
+        <Route path="/branding" element={<Branding />} />
+        <Route path="/employer-branding" element={<EmployerBranding />} />
+        <Route path="/ai-video-production" element={<AIVideoProduction />} />
+        <Route path="/careers" element={<Careers />} />
+>>>>>>> 8c30bff08c56249d20decf026755bfc31c5ce73f
       </Routes>
       <Footer />
     </Router>
