@@ -1,16 +1,8 @@
 import React, { useEffect } from 'react';
 import Contact from '../components/Contact';
-import Navbar from '../components/Navbar';
-import ServiceHero from '../components/Service/ServiceHero';
-import { ServiceProcess, ServiceFit } from '../components/Service/ServiceTemplate';
+import { ServiceProcess } from '../components/Service/ServiceTemplate';
 
 // --- 21st.dev Inspired UI Components ---
-
-const ShinyText = ({ text, className = "" }: { text: string, className?: string }) => {
-  return (
-    <span className={`shiny-text ${className}`}>{text}</span>
-  );
-};
 
 const ShimmerButton = ({ children, href }: { children: React.ReactNode, href: string }) => {
   return (
@@ -18,30 +10,6 @@ const ShimmerButton = ({ children, href }: { children: React.ReactNode, href: st
       <span className="shimmer-btn-content">{children}</span>
       <div className="shimmer-btn-bg"></div>
     </a>
-  );
-};
-
-const Marquee = ({ children, reverse = false }: { children: React.ReactNode, reverse?: boolean }) => {
-  return (
-    <div className="marquee-container">
-      <div className={`marquee-content ${reverse ? 'reverse' : ''}`}>
-        {children}
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const BentoCard = ({ title, description, index, colSpan = 1, rowSpan = 1 }: any) => {
-  return (
-    <div className="bento-card reveal-blur" style={{ gridColumn: `span ${colSpan}`, gridRow: `span ${rowSpan}` }}>
-      <div className="bento-bg"></div>
-      <div className="bento-content">
-        <div className="bento-icon">0{index}</div>
-        <h3 className="bento-title">{title}</h3>
-        <div className="bento-desc" dangerouslySetInnerHTML={{ __html: description }}></div>
-      </div>
-    </div>
   );
 };
 
@@ -158,11 +126,6 @@ const Careers: React.FC = () => {
     "You are curious about brands, people, culture, technology, and growth.",
     "You want to use AI as leverage, not as a shortcut."
   ];
-
-  const fitCheckData = {
-    title: "You may fit here if",
-    list: fitCheck
-  };
 
   const expectationsData = {
     title: "What you can expect here",
