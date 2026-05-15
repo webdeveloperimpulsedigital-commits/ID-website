@@ -25,7 +25,7 @@ import B2BSEO from './pages/B2BSEO';
 import ServicesIndex from './pages/ServicesIndex';
 import CaseStudies from './pages/CaseStudies';
 import { useLocation } from 'react-router-dom';
-
+import Careers from './pages/Careers';
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -39,7 +39,7 @@ const ScrollToTop = () => {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      
+
       if ((window as any).globalLenis) {
         (window as any).globalLenis.stop();
         (window as any).globalLenis.scrollTo(0, { immediate: true, force: true });
@@ -49,11 +49,11 @@ const ScrollToTop = () => {
 
     // Fire immediately
     forceScrollToTop();
-    
+
     // Fire after React finishes DOM mounting to override late-rendering height changes
     setTimeout(forceScrollToTop, 50);
     setTimeout(forceScrollToTop, 150);
-    
+
     // Re-initialize SplitType for new page sections
     setTimeout(() => {
       const { gsap, ScrollTrigger, SplitType } = window as any;
@@ -62,19 +62,19 @@ const ScrollToTop = () => {
           text.classList.add('split-done');
           const split = new SplitType(text, { types: 'lines, words' });
           split.lines?.forEach((line: any) => {
-              const wrapper = document.createElement('div');
-              wrapper.classList.add('line-wrapper');
-              line.parentNode?.insertBefore(wrapper, line);
-              wrapper.appendChild(line);
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('line-wrapper');
+            line.parentNode?.insertBefore(wrapper, line);
+            wrapper.appendChild(line);
           });
-          
+
           const splitStart = document.body.classList.contains('service-page') ? 'top 68%' : 'top 95%';
           gsap.fromTo(split.words,
-              { yPercent: 120, opacity: 0 },
-              {
-                  scrollTrigger: { trigger: text, start: splitStart, toggleActions: 'play none none reverse' },
-                  yPercent: 0, opacity: 1, duration: 0.8, stagger: 0.015, ease: 'power4.out'
-              }
+            { yPercent: 120, opacity: 0 },
+            {
+              scrollTrigger: { trigger: text, start: splitStart, toggleActions: 'play none none reverse' },
+              yPercent: 0, opacity: 1, duration: 0.8, stagger: 0.015, ease: 'power4.out'
+            }
           );
         });
         ScrollTrigger.refresh();
@@ -128,6 +128,7 @@ const App: React.FC = () => {
         <Route path="/services/ai-video-production" element={<AIVideoProduction />} />
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
       <Footer />
     </Router>
