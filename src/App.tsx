@@ -24,6 +24,8 @@ import EnterpriseSEO from './pages/EnterpriseSEO';
 import B2BSEO from './pages/B2BSEO';
 import ServicesIndex from './pages/ServicesIndex';
 import CaseStudies from './pages/CaseStudies';
+import UppercaseCaseStudy from './pages/UppercaseCaseStudy';
+import QureAICaseStudy from './pages/QureAICaseStudy';
 import { useLocation } from 'react-router-dom';
 import Careers from './pages/Careers';
 const ScrollToTop = () => {
@@ -131,6 +133,13 @@ const App: React.FC = () => {
         <Route path="/services/brand-infrastructure" element={<ServicesIndex categoryFilter="Brand Infrastructure" />} />
         <Route path="/services" element={<ServicesIndex />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/case-studies/uppercase" element={<UppercaseCaseStudy />} />
+        <Route path="/case-studies/qure-ai" element={<QureAICaseStudy />} />
+        {/* Temporary routes for pending case studies */}
+        <Route path="/case-studies/mastercard" element={<UppercaseCaseStudy />} />
+        <Route path="/case-studies/dmart" element={<UppercaseCaseStudy />} />
+        <Route path="/case-studies/hul" element={<UppercaseCaseStudy />} />
+        <Route path="/case-studies/fours-for-good" element={<UppercaseCaseStudy />} />
         <Route path="/careers" element={<Careers />} />
       </Routes>
       <Footer />

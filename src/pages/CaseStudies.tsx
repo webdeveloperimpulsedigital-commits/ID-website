@@ -1,7 +1,16 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const caseStudiesData = [
+  {
+    client: "Qure.ai",
+    title: "Healthcare AI SEO for the US Market",
+    category: "Growth Intelligence",
+    description: "Rebuilt Qure.ai’s US SEO structure from a one-page presence into a search-led system that generated 20 organic leads in one month.",
+    image: "/images/case-study-image/quire-qi/QureAI title.png",
+    slug: "/case-studies/qure-ai"
+  },
   {
     client: "Mastercard",
     title: "Priceless Experiences: Reimagining Global Loyalty",
@@ -23,7 +32,7 @@ const caseStudiesData = [
     title: "Sustainable Luggage: Launching a D2C Disruptor",
     category: "AI Marketing Systems",
     description: "A complete brand film produced entirely with generative AI—script, visuals, voice, and edit.",
-    image: "/case studies/Uppercase.webp",
+    image: "/images/case-study-image/uppercase/upper-case-hero-img.png",
     slug: "/case-studies/uppercase"
   },
   {
@@ -57,6 +66,7 @@ const CaseStudies: React.FC = () => {
 
   useEffect(() => {
     document.body.classList.add('work-page');
+    document.body.classList.add('service-page');
     
     const { gsap, ScrollTrigger } = window as any;
     if (gsap && ScrollTrigger && containerRef.current) {
@@ -95,15 +105,15 @@ const CaseStudies: React.FC = () => {
           "-=0.8"
         );
 
-        // Background color inversion & particle fade (like agentic-ai.html)
-        const firstSection = document.querySelector('.work-list-section');
-        if (firstSection) {
+        // Background color inversion & particle fade
+        const triggerEl = document.querySelector('.work-list-section');
+        if (triggerEl) {
           gsap.to(document.body, {
             backgroundColor: '#000000',
             scrollTrigger: {
-              trigger: firstSection,
-              start: 'top bottom',
-              end: 'top top',
+              trigger: triggerEl,
+              start: 'top 60%',
+              end: 'top 10%',
               scrub: true
             }
           });
@@ -114,9 +124,9 @@ const CaseStudies: React.FC = () => {
               {
                 opacity: 0,
                 scrollTrigger: {
-                  trigger: firstSection,
-                  start: 'top 80%',
-                  end: 'top 20%',
+                  trigger: triggerEl,
+                  start: 'top 60%',
+                  end: 'top 10%',
                   scrub: true
                 }
               }
@@ -160,6 +170,7 @@ const CaseStudies: React.FC = () => {
 
     return () => {
       document.body.classList.remove('work-page');
+      document.body.classList.remove('service-page');
       gsap.to(document.body, { backgroundColor: '#020018', duration: 0 });
       if ((window as any).particlesMaterial) {
         gsap.to((window as any).particlesMaterial, { opacity: 0.6, duration: 0 });
@@ -194,35 +205,38 @@ const CaseStudies: React.FC = () => {
       <section className="work-list-section">
         <div className="work-container">
           <div className="work-list">
-            {caseStudiesData.map((study, idx) => (
-              <a href={study.slug} className="work-list-item" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
-                
-                {/* Left Text Content */}
-                <div className="work-list-left">
-                  <div className="work-list-meta">
-                    <span className="meta-client">{study.category}</span>
+            {caseStudiesData.map((study, idx) => {
+              const isReady = study.slug === '/case-studies/uppercase' || study.slug === '/case-studies/qure-ai';
+              const content = (
+                <>
+                  {/* Left Text Content */}
+                  <div className="work-list-left">
+                    <h2 className="work-list-title" style={{ textTransform: 'uppercase' }}>{study.client}</h2>
                   </div>
-                  <h2 className="work-list-title" style={{ textTransform: 'uppercase' }}>{study.client}</h2>
-                </div>
 
-                {/* Right Image Gallery (Continuous Marquee) */}
-                <div className="work-list-right">
-                  <div className="work-list-gallery">
-                    <div className="work-list-track">
-                      {/* We duplicate the same image 4 times to create an infinite loop */}
-                      {[1, 2, 3, 4, 5, 6].map((num) => (
-                        <div 
-                          key={num}
-                          className="work-list-slide"
-                          style={{ backgroundImage: `url("${import.meta.env.BASE_URL}${study.image.replace(/^\//, '')}")` }}
-                        />
-                      ))}
+                  {/* Right Image */}
+                  <div className="work-list-right">
+                    <div className="work-list-gallery">
+                      <img 
+                        className="work-list-slide"
+                        src={`${import.meta.env.BASE_URL}${study.image.replace(/^\//, '')}`}
+                        alt={study.client}
+                      />
                     </div>
                   </div>
-                </div>
+                </>
+              );
 
-              </a>
-            ))}
+              return isReady ? (
+                <Link to={study.slug} className="work-list-item" key={idx} style={{ textDecoration: 'none', color: 'inherit', display: 'flex' }}>
+                  {content}
+                </Link>
+              ) : (
+                <div className="work-list-item pending-case-study" key={idx} style={{ display: 'flex', cursor: 'default' }}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -302,24 +316,7 @@ const CaseStudies: React.FC = () => {
           flex-direction: column;
         }
 
-        .work-list-meta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 2rem;
-          font-family: var(--font-mono, monospace);
-          font-size: 0.85rem;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          color: #ffffff;
-          font-weight: 600;
-          border-bottom: 1px solid rgba(255,255,255,0.1);
-          padding-bottom: 1rem;
-        }
 
-        .meta-client {
-          color: #aa3bff;
-        }
 
         .work-list-title {
           font-family: var(--font-heading, sans-serif);
@@ -350,59 +347,35 @@ const CaseStudies: React.FC = () => {
           color: #aa3bff;
         }
 
-        /* Right Side Gallery */
+        /* Right Side Image */
         .work-list-right {
           flex: 1;
           width: 100%;
-          min-width: 0; /* allows flex children to shrink */
-          overflow: hidden;
+          min-width: 0;
         }
 
         .work-list-gallery {
           width: 100%;
-          height: 500px;
+          aspect-ratio: 16 / 9;
           position: relative;
           overflow: hidden;
           border-radius: 8px;
-        }
-
-        .work-list-track {
-          display: flex;
-          gap: 2rem;
-          width: max-content;
-          height: 100%;
-          animation: marqueeScroll 25s linear infinite;
-        }
-
-        /* Hover on gallery pauses the loop */
-        .work-list-gallery:hover .work-list-track {
-          animation-play-state: paused;
+          display: block;
         }
 
         .work-list-slide {
+          width: 100%;
           height: 100%;
-          aspect-ratio: 16 / 10;
-          background-size: cover;
-          background-position: center;
+          object-fit: cover;
+          object-position: top;
+          display: block;
           border-radius: 8px;
-          flex-shrink: 0;
           transition: transform 0.5s ease, filter 0.5s ease;
         }
 
         .work-list-slide:hover {
           transform: scale(1.02);
           filter: brightness(1.1);
-        }
-
-        @keyframes marqueeScroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            /* Transform exactly by half the total width of the track (including gap) */
-            /* Since we render 6 items, half is 3 items + 3 gaps */
-            transform: translateX(calc(-50% - 1rem)); 
-          }
         }
 
         /* Responsive */
@@ -415,9 +388,6 @@ const CaseStudies: React.FC = () => {
             flex: 1;
             width: 100%;
           }
-          .work-list-gallery {
-            height: 400px;
-          }
         }
 
         @media (max-width: 768px) {
@@ -428,9 +398,6 @@ const CaseStudies: React.FC = () => {
           .work-hero-title {
             font-size: clamp(3rem, 15vw, 4.5rem);
             margin-bottom: 1.5rem;
-          }
-          .work-list-gallery {
-            height: 250px;
           }
           .work-list-section {
             padding: 4rem 0;
